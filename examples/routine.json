@@ -1,0 +1,30 @@
+{
+  "synthetic": true,
+  "routine": {
+    "id": "example-routine",
+    "name": "Three-item sample",
+    "exercises": [
+      {
+        "id": "demo-squat",
+        "name": "Squats",
+        "kind": "exercise",
+        "mode": "time",
+        "durationSeconds": 30
+      },
+      {
+        "id": "demo-break",
+        "name": "Break",
+        "kind": "break",
+        "mode": "time",
+        "durationSeconds": 10
+      },
+      {
+        "id": "demo-plank",
+        "name": "Plank",
+        "kind": "exercise",
+        "mode": "time",
+        "durationSeconds": 20
+      }
+    ]
+  }
+}
