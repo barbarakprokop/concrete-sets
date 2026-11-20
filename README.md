@@ -24,22 +24,23 @@ Workout timers often demand accounts, tracking, routines tied to services, and a
 ## Architecture
 
 ```mermaid
-%%{init: {"theme": "base", "themeVariables": {"fontFamily":"Arial, Helvetica, sans-serif","fontSize":"15px","primaryColor":"#FFFFFF","primaryTextColor":"#111111","primaryBorderColor":"#111111","lineColor":"#555555","edgeLabelBackground":"#FFFFFF"}}}%%
+%%{init: {"theme":"base","themeVariables":{"fontFamily":"Arial, Helvetica, sans-serif","fontSize":"15px","primaryColor":"#FF555A","primaryTextColor":"#FFFFFF","primaryBorderColor":"#FF555A","lineColor":"#858585","secondaryColor":"#858585","tertiaryColor":"#F0F0F0","edgeLabelBackground":"#FFFFFF"}}}%%
 flowchart TB
-    USER["01 / BUILD A ROUTINE"] --> APP["REACT NATIVE / EXPO<br/>Routine and workout UI"]
+    USER("01 / BUILD A ROUTINE") --> APP("REACT NATIVE / EXPO<br/>Routine and workout UI")
     APP <--> LOCAL[("LOCAL DEVICE STORAGE<br/>Routines, preferences and photos")]
-    APP --> CLOCK["02 / TIMER STATE<br/>Elapsed time from timestamps"]
-    CLOCK --> BRIDGE["03 / NATIVE SWIFT BRIDGE<br/>WatchConnectivity"]
-    BRIDGE <--> WATCH["APPLE WATCH<br/>Current / next / controls"]
-    WATCH --> HAPTIC["EVENT BASED HAPTICS"]
+    APP --> CLOCK("02 / TIMER STATE<br/>Elapsed time from timestamps")
+    CLOCK --> BRIDGE("03 / NATIVE SWIFT BRIDGE<br/>WatchConnectivity")
+    BRIDGE <--> WATCH("APPLE WATCH<br/>Current / next / controls")
+    WATCH --> HAPTIC("EVENT BASED HAPTICS")
     WATCH -.->|Play / pause / skip| BRIDGE
-    classDef ink fill:#111111,stroke:#111111,color:#FFFFFF,stroke-width:2px;
-    classDef outline fill:#FFFFFF,stroke:#111111,color:#111111,stroke-width:1.5px;
-    classDef muted fill:#F0F0F0,stroke:#777777,color:#111111,stroke-width:1.2px;
-    class USER,CLOCK ink;
-    class APP,BRIDGE,WATCH outline;
-    class LOCAL,HAPTIC muted;
-    linkStyle default stroke:#555555,stroke-width:1.5px;
+    classDef primary fill:#FF555A,stroke:#FF555A,color:#FFFFFF,stroke-width:1.5px;
+    classDef secondary fill:#858585,stroke:#858585,color:#FFFFFF,stroke-width:1.2px;
+    classDef annotation fill:#F0F0F0,stroke:#C7C7C7,color:#111111,stroke-width:1px;
+    classDef future fill:#F0F0F0,stroke:#999999,color:#555555,stroke-width:1.2px,stroke-dasharray:5 4;
+    class USER,CLOCK primary;
+    class APP,BRIDGE,WATCH secondary;
+    class LOCAL,HAPTIC annotation;
+    linkStyle default stroke:#858585,stroke-width:1.5px;
 ```
 
 This schematic summarizes the inspected private repository. Actual WatchConnectivity uses a native Expo module in Swift and a watchOS companion. It is **not** an independent watch app that runs full workout logic without the iPhone.
