@@ -1,5 +1,7 @@
 # CONCRETE SETS
 
+![concrete-sets interface preview](https://barbarakprokop.com/wp-content/uploads/2026/09/CS_MAIN.png)
+
 **An offline-first workout timer for iPhone and Apple Watch. Designed and built by Barbara K. Prokop.**
 
 I wanted a training timer that behaved like a tool: set up a routine, start it, and concentrate on the workout instead of navigating a fitness platform.
